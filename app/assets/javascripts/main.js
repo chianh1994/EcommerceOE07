@@ -120,30 +120,5 @@
         data: {quantity: quantity}
       });
     });
-        $("#rating a").each(function(){
-      $(this).on("click",function(){
-        $("#rating a").addClass("test");
-        $(this).nextAll().removeClass("test");
-        var rate = $(this).children("input").val();
-        $("input.rating").val(rate);
-        $.ajax({
-          url: 1 + "/ratings/",
-          method: "post",
-          data: {rating: {product_id: 1, rate: rate}}
-        });
-      });
-    });
-    $("#rating a").each(function(){
-      $(this).on("mouseover mouseout click",function(e){
-        var idStr = $(this).attr("id");
-        for(var i = 1; i <= 5; i++) {
-          if(i <= parseInt(idStr) && e.type !== "mouseout") {
-            $("a#"+i).addClass("hover");
-          } else {
-            $("a#"+i).removeClass("hover");
-          }
-        }
-      });
-    });
   });
 })(jQuery);
